@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow Presentation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eaeaea;
+            color: #333;
+        }
+        .header {
+    background-color: white;
+    /* width: 100%; */
+    box-shadow: 5px 5px 10px rgb(0, 0, 0);
+    /* padding-bottom: 5px; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 35px;
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+
+.header .logo {
+    width: 5%;
+    height: auto;
+    /* margin-top: 25px; */
+    /* margin-right: 10px;  */
+}
+
+.header .header-img {
+    width: 30%;
+    height: 70px;
+    object-fit: contain; /* Ensure the image fits within the dimensions without distortion */
+}
+        .slideshow-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 10px auto;
+            height: calc(100vh - 120px);
+            overflow: hidden; 
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+            overflow: auto
+        }
+        .slide {
+            display: none;
+            box-sizing: border-box;
+            padding: 20px;
+            transition: opacity 1s ease-in-out;
+            p{
+                font-size: 17px;
+            }
+        }
+        .slide img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .content {
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .left, .right {
+            width: 50%;
+            float: left;
+            box-sizing: border-box;
+        }
+        .left {
+            text-align: center;
+            font-size: 16px;
+            
+        }
+        .right {
+            padding-left: 20px;
+        }
+        .stanza .left {
+            text-align: left;
+        }
+        .slide.active {
+            display: block;
+            opacity: 1;
+        }
+        .nav-button {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 50%;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        .nav-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .nav-button.prev {
+            left: 10px;
+        }
+        .nav-button.next {
+            right: 10px;
+        }
+        .navigation {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+        }
+        .navigation button {
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 5px;
+        }
+        .navigation button:hover {
+            background-color: #0056b3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        pre {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="header">
+        <img src="Logo.png" alt="Logo" class="logo">
+        <img src="header.png" alt="Header Image" class="header-img">
+    </div>
+</div>
+    <div>
+
+        <div class="slideshow-container">
+        
+            <!-- Slide 1 -->
+            <div class="slide active">
+                <div class="left">
+                    <img src="1.png" alt="Scene 1 Image">
+                </div>
+                <div class="right" style="text-align: center;">
+                    <!-- <h2>Scene 1</h2> -->
+                    <!-- <p><strong>Title:</strong> If</p>
+                    <p><strong>Story Attribution:</strong> Rudyard Kipling</p>
+                    <p><strong>Content Attribution:</strong> Tania Arefin</p>
+                    <p><strong>Objective:</strong> A nuanced study of ANTONYMS and SYNONYMS</p> -->
+                    <h2> Let's learn</h2>
+                  <h1> ANTONYMS</h1>  
+                  <h2>and</h2>
+                  <h1>SYNONYMS</h1> 
+                </div>
+            </div>
+        
+            <!-- Slide 2 -->
+            <div class="slide">
+                <div class="left">
+                    <img src="2.png" alt="Scene 2 Image">
+                </div>
+                <div class="right">
+                    <!-- <h2>Scene 2</h2> -->
+                    <p>A synonym is a word which has the same or nearly the same meaning as another word. Synonyms can be used to replace words in certain contexts, and it helps to bring a distinctive style to the language.</p>
+                    <p>An Antonym is a word which has the opposite or nearly opposite meaning of a given word.</p>
+                    <p>We find both of them in a resource called the <b>Thesaurus</b> .</p>
+                    <p>We will explore them while reading the poem “If” by Rudyard Kipling.</p>
+                </div>
+            </div>
+        
+            <!-- Slide 3 -->
+            <div class="slide stanza">
+                <div class="left">
+                    <pre>
+        If you can keep your head when all about you
+            Are losing theirs and blaming it on you,
+        If you can <i>trust</i> yourself when all men <i>doubt</i> you,
+            But make allowance for their doubting too;
+        If you can wait and not be tired by waiting,
+        Or being lied about, don’t deal in lies,
+        Or being hated, don’t give way to hating,
+            And yet don’t look too good, nor talk too wise:
+                    </pre>
+                </div>
+                <div class="right">
+                    <p>When others fail and place the blame on him, the poet advises his son to be composed and patient. When others question him, he should have faith in himself. He should, however, also allow for their scepticism and make an effort to comprehend what prompted it.</p>
+                    <p>The poet advises waiting patiently for success and not growing weary while waiting in the fifth line since those who work hard and are persistent will succeed.</p>
+                    <p>The poet then warns his kid that other people will frequently mislead him. He should, however, always be genuine and should never lie in his life. People will despise him. But instead of returning their hatred, he ought to show them love.</p>
+                    <p>In the final line, the poet cautions him against seeming or sounding too knowledgeable or superior to others since, if he follows all the advice given above, his kid would appear and sound superior to others and appear too intelligent.</p>
+                </div>
+            </div>
+        
+            <!-- Slide 4 -->
+            <div class="slide">
+                <div class="left">
+                    <img src="3.png" alt="Scene 4 Image">
+                </div>
+                <div class="right">
+                    <!-- <h2>Scene 4</h2> -->
+                    <p>Let us first consider the titular word of the poem.</p>
+                   <b> <p>Does the word ‘if’ have any synonym?</p></b>
+                    <p>Some of the weak matches are: ‘assuming that’, ‘with the condition that’, ‘supposing that’, ‘in case that’, ‘granted that’, ‘On the occasion that’, ‘on the assumption that’. You can see that the substitutes of ‘if’ are quite wordy. <u>Thus, ‘if’ is its best substitute.</u></p>
+                  <b>  <p>Does the word ‘if’ have any antonym?</p></b>
+                    <p><u>‘Unless’ is the antonym of ‘if’.</u> ‘Unless’ means: except if (used to introduce the case in which a statement being made is not true or valid).</p>
+                </div>
+            </div>
+        
+            <!-- Slide 5 -->
+            <div class="slide">
+                <div class="left">
+                    <img src="4.png" alt="Scene 5 Image">
+                </div>
+                <div class="right">
+                    <!-- <h2>Scene 5</h2> -->
+                    <p>The conditions the poet is referring to carries within itself a sense of the opposite.</p>
+                    <p>For instance, in Stanza one he tells us that<i><u> “if you can trust yourself when all men doubt you”</u></i>, we find a pair of antonyms in this sentence. “Trust” and “Doubt”. Let us now look at the synonyms of ‘Trust’ and ‘Doubt’.</p>
+                    <table>
+                        <tr>
+                            <th>Word</th>
+                            <th>Synonyms</th>
+                        </tr>
+                        <tr>
+                            <td>Trust</td>
+                            <td>faith, confidence, expectation, hope</td>
+                        </tr>
+                        <tr>
+                            <td>Doubt</td>
+                            <td>mistrust, distrust, disbelieve, misgiving, apprehension</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        
+            <!-- Slide 6 -->
+          <!-- Slide 6 -->
+        <div class="slide">
+            <div class="left">
+                <pre>
+        Stanza 2:
+        If you can dream—and not make dreams your master;   
+            If you can think—and not make thoughts your aim;   
+        If you can meet with Triumph and Disaster
+            And treat those two impostors just the same;   
+        If you can bear to hear the truth you’ve spoken
+            Twisted by knaves to make a trap for fools,
+        Or watch the things you gave your life to, broken,
+            And stoop and build ’em up with worn-out tools:
+                </pre>
+            </div>
+            <div class="right">
+                <p>The poet advises him to have huge aspirations but to never let those dreams rule his life. Similarly, he should have positive ideas (about his objectives, the future, etc.), but he shouldn't make them the focus of his life because success in life requires effort.</p>
+                Simply daydreaming and pondering won't get you anywhere in life. Therefore, it is important to set objectives, envision a better future, and work diligently towards achieving those goals.
+                <p>The poet advises meeting Triumph and Disaster and treating those two impostors equally. The words "Triumph and Disaster" have their initial letters capitalized. These two extremes characterize existence. The poet refers to them as fakes or impostors. They either bring immense happiness or terrible misery. However, because they are short-lived, one should not take them seriously.</p>
+                <p>The poet advises speaking only the truth and having the courage to confront it when it is being used to deceive people. He should also have the fortitude to rebuild things he has built that are broken using outdated tools, that is, using the energy or abilities he currently possesses.</p>
+            </div>
+        </div>
+        
+        
+            <!-- Slide 7 -->
+         
+        <div class="slide">
+            <div class="left">
+                <h2>Synonyms</h2>
+                <p>Line 3 of Stanza 2 talks about another pair of antonyms: “Triumph” and “Disaster”.</p>
+                <p>Now let us look at the synonyms of ‘Triumph’ and ‘Disaster’:</p>
+                <table>
+                    <tr>
+                        <th>Word</th>
+                        <th>Synonyms</th>
+                    </tr>
+                    <tr>
+                        <td>Triumph</td>
+                        <td>Celebration, joy, pride, win, victory</td>
+                    </tr>
+                    <tr>
+                        <td>Disaster</td>
+                        <td>Calamity, defeat, catastrophe, woe, failure</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="right">
+                <h2>Antonyms</h2>
+                <p>Let's look at the antonyms of ‘Impostors’ and ‘Knaves’:</p>
+                <table>
+                    <tr>
+                        <th>Word</th>
+                        <th>Antonym</th>
+                    </tr>
+                    <tr>
+                        <td>Impostor</td>
+                        <td>Honest</td>
+                    </tr>
+                    <tr>
+                        <td>Knave</td>
+                        <td>Gentleman / Altruist / Humanitarian</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        
+            <!-- Slide 8 -->
+        <!-- Slide 8 -->
+        <div class="slide">
+            <div class="left">
+                <pre>
+                    Stanza 3
+        If you can make one heap of all your winnings
+            And risk it on one turn of pitch-and-toss,
+        And lose, and start again at your beginnings
+            And never breathe a word about your loss;
+        If you can force your heart and nerve and sinew
+            To serve your turn long after they are gone,
+        And so hold on when there is nothing in you
+            Except the Will which says to them: ‘Hold on!’
+                </pre>
+            </div>
+            <div class="right">
+                <p>The poet advises making a pile of all one's accomplishments before taking significant risks. In other words, one shouldn't be frightened to try new things because they may either help them succeed or end up being disastrous (pitch-and-toss). If one fails after taking significant risks, he should retry from the beginning without reflecting on or discussing the setback with others. You should keep trying until you succeed.</p>
+                <p>The poet advises using one's heart, nerve, and sinew, or bravery, when one grows weary or fails. When there is nothing left in life, one should possess a strong will that may inspire them to "Hold on!"</p>
+            </div>
+        </div>
+         <!-- Slide 9 -->
+        <div class="slide">
+            <div class="left">
+                <img src="5.png" alt="Scene 9 Image">
+            </div>
+            <div class="right">
+                <h2>Synonyms of Winnings and Losses</h2>
+                <p>In stanza 3, we come across synonym pairs like ‘start’ and ‘beginning,’ and antonym pairs such as ‘winnings’ and ‘losses.’</p>
+                <table>
+                    <tr>
+                        <th>Word</th>
+                        <th>Synonyms</th>
+                    </tr>
+                    <tr>
+                        <td>Winnings</td>
+                        <td>Gain, profit, achievement, accomplishments</td>
+                    </tr>
+                    <tr>
+                        <td>Losses</td>
+                        <td>Loss, losings, deficit, shortfall</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Slide 10 -->
+        <div class="slide">
+            <div class="left">
+                <pre>
+                Stanza 4
+                If you can talk with crowds and keep your virtue,   
+                    Or walk with Kings—nor lose the common touch,
+                If neither foes nor loving friends can hurt you,   
+                    If all men count with you, but none too much;
+                If you can fill the unforgiving minute   
+                    With sixty seconds’ worth of distance run,
+                Yours is the Earth and everything that’s in it,   
+                    And—which is more—you’ll be a Man, my son!
+                    </pre>
+            </div>
+            <div class="right">
+                <!-- <h2>Analysis</h2> -->
+                <!-- <p><strong>Antonyms and Synonyms:</strong></p>
+                <ul>
+                    <li><strong>Friends and Foes:</strong> Antonyms</li>
+                    <li><strong>Kings and Commoners:</strong> Antonyms</li>
+                    <li><strong>All and None:</strong> Antonyms</li>
+                </ul> -->
+                <p>According to the poet, one must maintain their qualities among ordinary people (and never act like them), but vanity and ego are never appropriate among monarchs or other powerful individuals. In other words, the poet is advising people to maintain their qualities while they are poor and to never become conceited while they are wealthy.</p>
+                <p>Next, the poet asserts that one's beliefs in one's ideas and goals prevent one from being harmed by either loving friends or adversaries. They should never be abandoned. Although others will frequently depend on him, he shouldn't ever let them become wholly dependent on him. The poet could be implying that one should never place too much value on other people since doing so will cause one to become emotionally connected to them and cause future harm.</p>
+                <p>The poet discusses the value of time in the following verse. He believes that time is limited and will never be given back. Therefore, one should start making the most of every single second of existence. The poet informs his son in the final two lines that if he (his son) follows all the counsel he gave above, he will be able to do everything he wants and will be a Man, or a genuine human.</p>
+            </div>
+        </div>
+        
+        
+           <!-- Slide 11 -->
+        <div class="slide">
+            <div class="left">
+                <img src="6.png" alt="Scene 11 Image">
+            </div>
+            <div class="right">
+                <h2>Conclusion</h2>
+                <p>Kipling informs his audience in the poem "If-" that success comes from not taking life too seriously. He counsels staying loyal to oneself, taking risks, and not letting emotions control one's actions. Kipling basically tells his kid to have enough trust and confidence in himself to stay loyal to himself. He also appears to imply that his son will have faith and confidence since he knows himself. It is a self-sustaining loop. Cycles are endless. According to Kipling, success is measured by the 60-second run rather than by accomplishments—the journey, not the destination. What is important is how we spend our lives, not when we die.</p>
+                <p>Let us now consider a deeper look at antonyms and synonyms.</p>
+            </div>
+        </div>
+        
+          <!-- Slide 12 -->
+        <div class="slide">
+            <div class="left">
+                <h2>Context of the Word "Dream"</h2>
+                <p>Let us consider the word <b>"Dream"</b> from the first line of the second stanza of the poem:</p>
+                <p><i>“If you can dream—and not make dreams your master”</i></p>
+                <p>You will notice that the word has been used in two similar contexts. The “first dream” means “to aspire” and the “second dream” refers to the “aspirations” in life. There are two more contexts in which the “dream” can be used. Now let us look at all the three contexts together:</p>
+                <ul>
+                    <li><strong>Dreams: Noun</strong> - As in illusion or vision</li>
+                    <li><strong>Dreams: Noun</strong> - As in goals</li>
+                    <li><strong>Dreams: Verb</strong> - As in conjure up a scenario</li>
+                </ul>
+            </div>
+            <div class="right">
+                <h2>Thesaurus</h2>
+                <p>We do realize that it is not possible to always remember the antonyms and synonyms of every word we come across, thus it is necessary to know about the <strong>‘THESAURUS’</strong> and what's in it.</p>
+                <p>A thesaurus <u>is a printed or digital source that enumerates terms along with synonyms and related ideas.</u> A thesaurus is also known as a dictionary of synonyms. Interestingly, it also provides antonyms. <a href="http://www.thesaurus.com">www.thesaurus.com</a> is the website address of the digital version of a thesaurus.<b> The thesaurus is very handy because it provides both synonyms and antonyms categorically as per the meaning of the word used and the intensity of exactness.</b></p>
+            </div>
+        </div>
+        
+        
+        
+        <!-- Slide 13 -->
+        <div class="slide">
+            <h2>Contextual Synonyms for the Word "Dream"</h2>
+        
+            <h3>Dream (Noun - as in illusion or vision)</h3>
+            <table border="1" style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+                <thead>
+                    <tr>
+                        <th>Given Word</th>
+                        <th>Meaning of the Word/Context</th>
+                        <th>Strongest Match</th>
+                        <th>Strong Match</th>
+                        <th>Weak Match</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dream</td>
+                        <td>Noun - as in illusion or vision</td>
+                        <td>Delusion, fantasy, imagination, thought</td>
+                        <td>Chimera, bubble, hallucination, fancy</td>
+                        <td>Castle in the air, pipe dream, head trip, mental picture</td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            <h3>Dream (Noun - as in goals)</h3>
+            <table border="1" style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+                <thead>
+                    <tr>
+                        <th>Given Word</th>
+                        <th>Meaning of the Word/Context</th>
+                        <th>Strongest Match</th>
+                        <th>Strong Match</th>
+                        <th>Weak Match</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dream</td>
+                        <td>Noun - as in goals</td>
+                        <td>Ambition, aspiration, hope, wish, desire, notion</td>
+                        <td>Design</td>
+                        <td>Flight of fancy, pipe dream</td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            <h3>Dream (Verb - as in conjure up a scenario)</h3>
+            <table border="1" style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th>Given Word</th>
+                        <th>Meaning of the Word/Context</th>
+                        <th>Strongest Match</th>
+                        <th>Strong Match</th>
+                        <th>Weak Match</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dream</td>
+                        <td>Verb - as in conjure up a scenario</td>
+                        <td>Conceive, crave, daydream, fantasize, invent, think, visualize</td>
+                        <td>Brainstorm, concoct, devise, fancy, idealize, picture, hallucinate</td>
+                        <td>Think up, cook up, make up, be delirious, have a flash, be moonstruck</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        
+        <!-- Slide 14 -->
+        <div class="slide">
+            <h2>Antonyms for the Word "Dream"</h2>
+        
+            <h3>Dream (Noun - as in illusion or vision)</h3>
+            <table border="1" style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+                <thead>
+                    <tr>
+                        <th>Given Word</th>
+                        <th>Meaning of the Word/Context</th>
+                        <th>Strongest Opposite</th>
+                        <th>Strong Opposite</th>
+                        <th>Weak Opposite</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dream</td>
+                        <td>Noun - as in illusion or vision</td>
+                        <td>Concrete, entity, reality, truth</td>
+                        <td>Fact</td>
+                        <td>Actuality, certainty, substance, existence</td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            <h3>Dream (Noun - as in goals)</h3>
+            <table border="1" style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+                <thead>
+                    <tr>
+                        <th>Given Word</th>
+                        <th>Meaning of the Word/Context</th>
+                        <th>Strongest Opposite</th>
+                        <th>Strong Opposite</th>
+                        <th>Weak Opposite</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dream</td>
+                        <td>Noun - as in goals</td>
+                        <td>Dislike, hate, hatred</td>
+                        <td>X</td>
+                        <td>Actuality, certainty, substance, existence, fact, truth</td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            <h3>Dream (Verb - as in conjure up a scenario)</h3>
+            <table border="1" style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th>Given Word</th>
+                        <th>Meaning of the Word/Context</th>
+                        <th>Strongest Opposite</th>
+                        <th>Strong Opposite</th>
+                        <th>Weak Opposite</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dream</td>
+                        <td>Verb - as in conjure up a scenario</td>
+                        <td>X</td>
+                        <td>Despise, dislike, hate</td>
+                        <td>X</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        
+        <!-- Slide 15 -->
+        <div class="slide">
+            <div class="left">
+                <img src="7.png" alt="Relevant Image" style="width: 100%; height: auto;">
+            </div>
+            <div class="right">
+                <h2>Points to Remember</h2>
+                <ul>
+                    <li><strong>A healthy reading habit:</strong> Increases and develops one’s vocabulary, which in turn sustains writing skills.</li>
+                    <li><strong>Vocabulary and Context:</strong> Increase and development of vocabulary improve one’s understanding of antonyms and synonyms. In English, a single word can be used in multiple contexts, and its meaning changes accordingly. Thus, a single word might have different sets of antonyms and synonyms based on the context.</li>
+                    <li><strong>Contextual Usage of Synonyms:</strong> Not all synonyms of a certain word can be used interchangeably in every context. This is often due to traditional usage or slight differences in meaning, even though the synonyms are similar.</li>
+                </ul>
+            </div>
+        </div>
+        
+        
+            <!-- Slide 16 -->
+            <div class="slide">
+                <div class="left">
+                    <img src="8.png" alt="Scene 16 Image">
+                </div>
+                <div class="right" style="font-size: 30px; text-align: center;">
+               <b>  Woohoo.. "You have learnt about "ANTONYMS and SYNONYMS"</b> 
+                </div>
+            </div>
+        
+            <!-- Navigation Buttons -->
+            <!-- <button class="nav-button prev" onclick="plusSlides(-1)">&#10094;</button>
+            <button class="nav-button next" onclick="plusSlides(1)">&#10095;</button>
+        
+         -->
+        </div>
+        <div>
+            <button class="nav-button prev" onclick="plusSlides(-1)">&#10094;</button>
+            <button class="nav-button next" onclick="plusSlides(1)">&#10095;</button>
+        
+        </div>
+    </div>
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let slides = document.getElementsByClassName("slide");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex-1].style.display = "block";
+    }
+</script>
+
+</body>
+</html>
